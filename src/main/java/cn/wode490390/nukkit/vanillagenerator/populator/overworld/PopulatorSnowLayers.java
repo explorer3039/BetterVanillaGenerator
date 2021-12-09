@@ -8,8 +8,8 @@ import cn.nukkit.math.NukkitRandom;
 
 public class PopulatorSnowLayers extends Populator {
 
-    protected static final boolean[] coverableBiome = new boolean[256];
-    protected static final boolean[] uncoverableBlock = new boolean[256];
+    protected static final boolean[] coverableBiome = new boolean[512];
+    protected static final boolean[] uncoverableBlock = new boolean[512];
 
     static {
         coverableBiome[EnumBiome.ICE_PLAINS.id] = true;

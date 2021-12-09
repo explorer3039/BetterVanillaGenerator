@@ -3,7 +3,6 @@ package cn.wode490390.nukkit.vanillagenerator;
 import cn.nukkit.level.generator.Generator;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
-import cn.wode490390.nukkit.vanillagenerator.util.MetricsLite;
 import cn.wode490390.nukkit.vanillagenerator.util.OpenCL;
 import com.jogamp.opencl.CLDevice;
 import com.jogamp.opencl.CLPlatform;
@@ -19,12 +18,6 @@ public class BetterGenerator extends PluginBase {
 
     @Override
     public void onEnable() {
-        try {
-            new MetricsLite(this, 5198);
-        } catch (Throwable ignore) {
-
-        }
-
         this.saveDefaultConfig();
         Config config = this.getConfig();
 
