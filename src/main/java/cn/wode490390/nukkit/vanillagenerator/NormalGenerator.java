@@ -2,11 +2,14 @@ package cn.wode490390.nukkit.vanillagenerator;
 
 import cn.nukkit.Server;
 import cn.nukkit.block.Block;
+import cn.nukkit.block.BlockID;
 import cn.nukkit.block.BlockStone;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.biome.Biome;
 import cn.nukkit.level.biome.EnumBiome;
 import cn.nukkit.level.format.generic.BaseFullChunk;
+import cn.nukkit.level.generator.populator.impl.PopulatorSpring;
+import cn.nukkit.level.generator.populator.impl.WaterIcePopulator;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.math.Vector3;
@@ -187,7 +190,7 @@ public class NormalGenerator extends VanillaGenerator {
                         new OreType(Block.get(COAL_ORE), 20, 17, 0, 128),
                         new OreType(Block.get(IRON_ORE), 20, 9, 0, 64),
                         new OreType(Block.get(REDSTONE_ORE), 8, 8, 0, 16),
-                        new OreType(Block.get(LAPIS_ORE), 1, 7, 0, 16),
+                        new OreType(Block.get(LAPIS_ORE), 1, 7, 0, 30),
                         new OreType(Block.get(GOLD_ORE), 2, 9, 0, 32),
                         new OreType(Block.get(DIAMOND_ORE), 1, 8, 0, 16),
                         new OreType(Block.get(DIRT), 10, 33, 0, 128),
@@ -196,7 +199,10 @@ public class NormalGenerator extends VanillaGenerator {
                         new OreType(Block.get(STONE, BlockStone.DIORITE), 10, 33, 0, 80),
                         new OreType(Block.get(STONE, BlockStone.ANDESITE), 10, 33, 0, 80)
                 }),
-                new PopulatorSnowLayers()
+                new PopulatorSnowLayers(),
+                new WaterIcePopulator(),
+                new PopulatorSpring(BlockID.WATER, ImmutableList.of(BlockID.STONE), 15, 8, 255),
+                new PopulatorSpring(BlockID.LAVA, ImmutableList.of(BlockID.STONE), 10, 16, 255)
         );
         this.biomeGrid = MapLayer.initialize(level.getSeed(), this.getDimension(), this.getId());
     }
