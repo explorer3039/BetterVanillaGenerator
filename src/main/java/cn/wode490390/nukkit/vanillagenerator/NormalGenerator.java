@@ -201,8 +201,8 @@ public class NormalGenerator extends VanillaGenerator {
                 }),
                 new PopulatorSnowLayers(),
                 new WaterIcePopulator(),
-                new PopulatorSpring(BlockID.WATER, ImmutableList.of(BlockID.STONE), 15, 8, 255),
-                new PopulatorSpring(BlockID.LAVA, ImmutableList.of(BlockID.STONE), 10, 16, 255)
+                new PopulatorSpring(BlockID.WATER, BlockID.STONE, 15, 8, 255),
+                new PopulatorSpring(BlockID.LAVA, BlockID.STONE, 10, 16, 255)
         );
         this.biomeGrid = MapLayer.initialize(level.getSeed(), this.getDimension(), this.getId());
     }
