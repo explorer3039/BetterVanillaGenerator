@@ -8,29 +8,20 @@ import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.biome.Biome;
 import cn.nukkit.level.biome.EnumBiome;
 import cn.nukkit.level.format.generic.BaseFullChunk;
+import cn.nukkit.level.generator.populator.impl.PopulatorSnowLayers;
 import cn.nukkit.level.generator.populator.impl.PopulatorSpring;
 import cn.nukkit.level.generator.populator.impl.WaterIcePopulator;
 import cn.nukkit.level.generator.populator.type.Populator;
 import cn.nukkit.math.NukkitRandom;
 import cn.nukkit.math.Vector3;
 import cn.wode490390.nukkit.vanillagenerator.biomegrid.MapLayer;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGenerator;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorMesa;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorMycel;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorPatchDirt;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorPatchDirtAndStone;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorPatchGravel;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorPatchStone;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorRocky;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorSandy;
-import cn.wode490390.nukkit.vanillagenerator.ground.GroundGeneratorSnowy;
+import cn.wode490390.nukkit.vanillagenerator.ground.*;
 import cn.wode490390.nukkit.vanillagenerator.noise.PerlinOctaveGenerator;
 import cn.wode490390.nukkit.vanillagenerator.noise.SimplexOctaveGenerator;
 import cn.wode490390.nukkit.vanillagenerator.noise.bukkit.OctaveGenerator;
 import cn.wode490390.nukkit.vanillagenerator.object.OreType;
 import cn.wode490390.nukkit.vanillagenerator.populator.PopulatorOre;
 import cn.wode490390.nukkit.vanillagenerator.populator.overworld.PopulatorCaves;
-import cn.wode490390.nukkit.vanillagenerator.populator.overworld.PopulatorSnowLayers;
 import cn.wode490390.nukkit.vanillagenerator.scheduler.CLNoiseReleaseTask;
 import cn.wode490390.nukkit.vanillagenerator.util.OpenCL;
 import com.google.common.collect.ImmutableList;
@@ -88,13 +79,14 @@ public class NormalGenerator extends VanillaGenerator {
         setBiomeSpecificGround(new GroundGeneratorPatchStone(),  EnumBiome.EXTREME_HILLS.id);
         setBiomeSpecificGround(new GroundGeneratorPatchGravel(),  EnumBiome.EXTREME_HILLS_M.id,  EnumBiome.EXTREME_HILLS_PLUS_M.id);
         setBiomeSpecificGround(new GroundGeneratorPatchDirtAndStone(),  EnumBiome.SAVANNA_M.id,  EnumBiome.SAVANNA_PLATEAU_M.id);
-        setBiomeSpecificGround(new GroundGeneratorPatchDirt(),  EnumBiome.MEGA_TAIGA.id,  EnumBiome.MEGA_TAIGA_HILLS.id,  EnumBiome.MEGA_SPRUCE_TAIGA.id);//,  EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id
+        setBiomeSpecificGround(new GroundGeneratorPatchDirt(),  EnumBiome.MEGA_TAIGA.id,  EnumBiome.MEGA_TAIGA_HILLS.id,  EnumBiome.MEGA_SPRUCE_TAIGA.id,  EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id);
+        setBiomeSpecificGround(new GroundGeneratorPatchPodzol(),  EnumBiome.BAMBOO_JUNGLE.id,  EnumBiome.BAMBOO_JUNGLE_HILLS.id);
         setBiomeSpecificGround(new GroundGeneratorMesa(),  EnumBiome.MESA.id,  EnumBiome.MESA_PLATEAU.id,  EnumBiome.MESA_PLATEAU_F.id);
         setBiomeSpecificGround(new GroundGeneratorMesa(GroundGeneratorMesa.MesaType.BRYCE),  EnumBiome.MESA_BRYCE.id);
         setBiomeSpecificGround(new GroundGeneratorMesa(GroundGeneratorMesa.MesaType.FOREST),  EnumBiome.MESA_PLATEAU_F.id,  EnumBiome.MESA_PLATEAU_F_M.id);
 
-        setBiomeHeight(BiomeHeight.OCEAN, EnumBiome.OCEAN.id, EnumBiome.FROZEN_OCEAN.id);
-        setBiomeHeight(BiomeHeight.DEEP_OCEAN, EnumBiome.DEEP_OCEAN.id);
+        setBiomeHeight(BiomeHeight.OCEAN, EnumBiome.OCEAN.id, EnumBiome.FROZEN_OCEAN.id, EnumBiome.WARM_OCEAN.id, EnumBiome.LUKEWARM_OCEAN.id);
+        setBiomeHeight(BiomeHeight.DEEP_OCEAN, EnumBiome.DEEP_OCEAN.id, EnumBiome.DEEP_FROZEN_OCEAN.id, EnumBiome.DEEP_WARM_OCEAN.id, EnumBiome.DEEP_LUKEWARM_OCEAN.id);
         setBiomeHeight(BiomeHeight.RIVER, EnumBiome.RIVER.id, EnumBiome.FROZEN_RIVER.id);
         setBiomeHeight(BiomeHeight.FLAT_SHORE, EnumBiome.BEACH.id, EnumBiome.COLD_BEACH.id, EnumBiome.MUSHROOM_ISLAND_SHORE.id);
         setBiomeHeight(BiomeHeight.ROCKY_SHORE, EnumBiome.STONE_BEACH.id);
@@ -103,14 +95,14 @@ public class NormalGenerator extends VanillaGenerator {
         setBiomeHeight(BiomeHeight.MID_PLAINS, EnumBiome.TAIGA.id, EnumBiome.COLD_TAIGA.id, EnumBiome.MEGA_TAIGA.id);
         setBiomeHeight(BiomeHeight.SWAMPLAND, EnumBiome.SWAMP.id);
         setBiomeHeight(BiomeHeight.LOW_HILLS, EnumBiome.MUSHROOM_ISLAND.id);
-        setBiomeHeight(BiomeHeight.HILLS, EnumBiome.DESERT_HILLS.id, EnumBiome.FOREST_HILLS.id, EnumBiome.TAIGA_HILLS.id, EnumBiome.EXTREME_HILLS_EDGE.id, EnumBiome.JUNGLE_HILLS.id, EnumBiome.BIRCH_FOREST_HILLS.id, EnumBiome.COLD_TAIGA_HILLS.id, EnumBiome.MEGA_TAIGA_HILLS.id, EnumBiome.MESA_PLATEAU_F_M.id, EnumBiome.MESA_PLATEAU_M.id);//, EnumBiome.ICE_MOUNTAINS.id
+        setBiomeHeight(BiomeHeight.HILLS, EnumBiome.DESERT_HILLS.id, EnumBiome.FOREST_HILLS.id, EnumBiome.TAIGA_HILLS.id, EnumBiome.EXTREME_HILLS_EDGE.id, EnumBiome.JUNGLE_HILLS.id, EnumBiome.BIRCH_FOREST_HILLS.id, EnumBiome.COLD_TAIGA_HILLS.id, EnumBiome.MEGA_TAIGA_HILLS.id, EnumBiome.MESA_PLATEAU_F_M.id, EnumBiome.MESA_PLATEAU_M.id, EnumBiome.ICE_MOUNTAINS.id);
         setBiomeHeight(BiomeHeight.HIGH_PLATEAU, EnumBiome.SAVANNA_PLATEAU.id, EnumBiome.MESA_PLATEAU_F.id, EnumBiome.MESA_PLATEAU.id);
         setBiomeHeight(BiomeHeight.FLATLANDS_HILLS, EnumBiome.DESERT_M.id);
         setBiomeHeight(BiomeHeight.BIG_HILLS, EnumBiome.ICE_PLAINS_SPIKES.id);
         setBiomeHeight(BiomeHeight.BIG_HILLS2, EnumBiome.BIRCH_FOREST_HILLS_M.id);
         setBiomeHeight(BiomeHeight.SWAMPLAND_HILLS, EnumBiome.SWAMPLAND_M.id);
         setBiomeHeight(BiomeHeight.DEFAULT_HILLS, EnumBiome.JUNGLE_M.id, EnumBiome.JUNGLE_EDGE_M.id, EnumBiome.BIRCH_FOREST_M.id, EnumBiome.ROOFED_FOREST_M.id);
-        setBiomeHeight(BiomeHeight.MID_HILLS, EnumBiome.TAIGA_M.id, EnumBiome.COLD_TAIGA_M.id, EnumBiome.MEGA_SPRUCE_TAIGA.id);//, EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id
+        setBiomeHeight(BiomeHeight.MID_HILLS, EnumBiome.TAIGA_M.id, EnumBiome.COLD_TAIGA_M.id, EnumBiome.MEGA_SPRUCE_TAIGA.id, EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id);
         setBiomeHeight(BiomeHeight.MID_HILLS2, EnumBiome.FLOWER_FOREST.id);
         setBiomeHeight(BiomeHeight.LOW_SPIKES, EnumBiome.SAVANNA_M.id);
         setBiomeHeight(BiomeHeight.HIGH_SPIKES, EnumBiome.SAVANNA_PLATEAU_M.id);

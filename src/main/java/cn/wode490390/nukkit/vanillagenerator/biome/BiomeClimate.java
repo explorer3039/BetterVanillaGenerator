@@ -23,12 +23,12 @@ public class BiomeClimate {
         setBiomeClimate(Climate.EXTREME_HILLS, EnumBiome.EXTREME_HILLS.id, EnumBiome.EXTREME_HILLS_PLUS.id, EnumBiome.EXTREME_HILLS_M.id, EnumBiome.EXTREME_HILLS_PLUS_M.id, EnumBiome.STONE_BEACH.id, EnumBiome.EXTREME_HILLS_EDGE.id);
         setBiomeClimate(Climate.FOREST, EnumBiome.FOREST.id, EnumBiome.FOREST_HILLS.id, EnumBiome.FLOWER_FOREST.id, EnumBiome.ROOFED_FOREST.id, EnumBiome.ROOFED_FOREST_M.id);
         setBiomeClimate(Climate.BIRCH_FOREST, EnumBiome.BIRCH_FOREST.id, EnumBiome.BIRCH_FOREST_HILLS.id, EnumBiome.BIRCH_FOREST_M.id, EnumBiome.BIRCH_FOREST_HILLS_M.id);
-        setBiomeClimate(Climate.TAIGA, EnumBiome.TAIGA.id, EnumBiome.TAIGA_HILLS.id, EnumBiome.TAIGA_M.id, EnumBiome.MEGA_SPRUCE_TAIGA.id);//, EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id
+        setBiomeClimate(Climate.TAIGA, EnumBiome.TAIGA.id, EnumBiome.TAIGA_HILLS.id, EnumBiome.TAIGA_M.id, EnumBiome.MEGA_SPRUCE_TAIGA.id, EnumBiome.MEGA_SPRUCE_TAIGA_HILLS.id);
         setBiomeClimate(Climate.SWAMPLAND, EnumBiome.SWAMP.id, EnumBiome.SWAMPLAND_M.id);
-        setBiomeClimate(Climate.ICE_PLAINS, EnumBiome.ICE_PLAINS.id, EnumBiome.ICE_PLAINS_SPIKES.id, EnumBiome.FROZEN_RIVER.id, EnumBiome.FROZEN_OCEAN.id);//, EnumBiome.ICE_MOUNTAINS.id
+        setBiomeClimate(Climate.ICE_PLAINS, EnumBiome.ICE_PLAINS.id, EnumBiome.ICE_PLAINS_SPIKES.id, EnumBiome.FROZEN_RIVER.id, EnumBiome.FROZEN_OCEAN.id, EnumBiome.ICE_MOUNTAINS.id);
         setBiomeClimate(Climate.MUSHROOM, EnumBiome.MUSHROOM_ISLAND.id, EnumBiome.MUSHROOM_ISLAND_SHORE.id);
         setBiomeClimate(Climate.COLD_BEACH, EnumBiome.COLD_BEACH.id);
-        setBiomeClimate(Climate.JUNGLE, EnumBiome.JUNGLE.id, EnumBiome.JUNGLE_HILLS.id, EnumBiome.JUNGLE_M.id);
+        setBiomeClimate(Climate.JUNGLE, EnumBiome.JUNGLE.id, EnumBiome.JUNGLE_HILLS.id, EnumBiome.JUNGLE_M.id, EnumBiome.BAMBOO_JUNGLE.id, EnumBiome.BAMBOO_JUNGLE_HILLS.id);
         setBiomeClimate(Climate.JUNGLE_EDGE, EnumBiome.JUNGLE_EDGE.id, EnumBiome.JUNGLE_EDGE_M.id);
         setBiomeClimate(Climate.COLD_TAIGA, EnumBiome.COLD_TAIGA.id, EnumBiome.COLD_TAIGA_HILLS.id, EnumBiome.COLD_TAIGA_M.id);
         setBiomeClimate(Climate.MEGA_TAIGA, EnumBiome.MEGA_TAIGA.id, EnumBiome.MEGA_TAIGA_HILLS.id);

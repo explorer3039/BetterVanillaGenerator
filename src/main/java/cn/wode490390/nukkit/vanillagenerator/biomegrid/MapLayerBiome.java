@@ -10,7 +10,7 @@ public class MapLayerBiome extends MapLayer {
     private static final int[] COLD = new int[]{EnumBiome.ICE_PLAINS.id, EnumBiome.ICE_PLAINS.id, EnumBiome.COLD_TAIGA.id};
     private static final int[] WARM_LARGE = new int[]{EnumBiome.MESA_PLATEAU_F.id, EnumBiome.MESA_PLATEAU_F.id, EnumBiome.MESA_PLATEAU.id};
     private static final int[] DRY_LARGE = new int[]{EnumBiome.MEGA_TAIGA.id};
-    private static final int[] WET_LARGE = new int[]{EnumBiome.JUNGLE.id};
+    private static final int[] WET_LARGE = new int[]{EnumBiome.JUNGLE.id, EnumBiome.BAMBOO_JUNGLE.id};
 
     private final MapLayer belowLayer;
 

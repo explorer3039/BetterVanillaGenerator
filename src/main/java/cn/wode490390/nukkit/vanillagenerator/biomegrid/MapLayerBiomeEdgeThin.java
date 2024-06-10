@@ -22,6 +22,12 @@ public class MapLayerBiomeEdgeThin extends MapLayer {
     static {
         OCEANS.add(EnumBiome.OCEAN.id);
         OCEANS.add(EnumBiome.DEEP_OCEAN.id);
+        OCEANS.add(EnumBiome.WARM_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_WARM_OCEAN.id);
+        OCEANS.add(EnumBiome.LUKEWARM_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_LUKEWARM_OCEAN.id);
+        OCEANS.add(EnumBiome.COLD_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_COLD_OCEAN.id);
 
         MESA_EDGES.put(EnumBiome.MESA.id, EnumBiome.DESERT.id);
         MESA_EDGES.put(EnumBiome.MESA_BRYCE.id, EnumBiome.DESERT.id);
