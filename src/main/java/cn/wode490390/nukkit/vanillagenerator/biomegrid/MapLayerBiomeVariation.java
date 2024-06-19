@@ -122,7 +122,8 @@ public class MapLayerBiomeVariation extends MapLayer {
                     int val = centerValue;
                     if (VARIATIONS.containsKey(centerValue)) {
                         val = VARIATIONS.get(centerValue)[nextInt(VARIATIONS.get(centerValue).length)];
-                    } else if (centerValue == EnumBiome.DEEP_OCEAN.id && nextInt(3) == 0) {
+                    } else if ((centerValue == EnumBiome.DEEP_OCEAN.id || centerValue == EnumBiome.DEEP_COLD_OCEAN.id || centerValue == EnumBiome.DEEP_WARM_OCEAN.id || centerValue == EnumBiome.DEEP_LUKEWARM_OCEAN.id || centerValue == EnumBiome.DEEP_FROZEN_OCEAN.id)
+                            && nextInt(3) == 0) {
                         val = ISLANDS[nextInt(ISLANDS.length)];
                     }
                     if (variationValue == 2 && val != centerValue) {
