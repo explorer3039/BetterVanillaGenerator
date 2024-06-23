@@ -1,38 +1,17 @@
 package cn.wode490390.nukkit.vanillagenerator.ground;
 
-import cn.nukkit.block.Block;
-import cn.nukkit.block.BlockID;
 import cn.nukkit.level.ChunkManager;
 import cn.nukkit.level.format.generic.BaseFullChunk;
 import cn.nukkit.math.NukkitRandom;
-import cn.wode490390.nukkit.vanillagenerator.VanillaGenerator;
-import cn.wode490390.nukkit.vanillagenerator.biome.BiomeClimate;
 
-public class GroundGenerator implements BlockID {
+public class GroundGeneratorSandOcean extends GroundGenerator {
 
-    protected static final int SEA_LEVEL = VanillaGenerator.SEA_LEVEL;
-
-    protected int topMaterial;
-    protected int topData;
-    protected int groundMaterial;
-    protected int groundData;
-
-    public GroundGenerator() {
-        setTopMaterial(GRASS);
-        setGroundMaterial(DIRT);
+    public GroundGeneratorSandOcean() {
+        setTopMaterial(SAND);
+        setGroundMaterial(SANDSTONE);
     }
 
-    /**
-     * Generates a terrain column.
-     *
-     * @param chunkData the affected chunk
-     * @param world the affected world
-     * @param random the PRNG to use
-     * @param chunkX the chunk X coordinate
-     * @param chunkZ the chunk Z coordinate
-     * @param biome the biome this column is in
-     * @param surfaceNoise the amplitude of random variation in surface height
-     */
+    @Override
     public void generateTerrainColumn(ChunkManager world, BaseFullChunk chunkData, NukkitRandom random, int chunkX, int chunkZ, int biome, double surfaceNoise) {
         int seaLevel = 64;
 
@@ -64,7 +43,7 @@ public class GroundGenerator implements BlockID {
                         } else if (y < seaLevel - 8 - surfaceHeight) {
                             topMat = AIR;
                             groundMat = STONE;
-                            chunkData.setBlock(x, y, z, GRAVEL);
+                            chunkData.setBlock(x, y, z, SAND);
                         } else {
                             chunkData.setBlock(x, y, z, groundMat, this.groundData);
                         }
@@ -77,28 +56,8 @@ public class GroundGenerator implements BlockID {
                             groundMat = SANDSTONE;
                         }
                     }
-                } else if (mat == Block.STILL_WATER && y == seaLevel - 2 && BiomeClimate.isCold(biome, chunkX, y, chunkZ)) {
-                    chunkData.setBlock(x, y, z, ICE);
                 }
             }
         }
-    }
-
-    protected final void setTopMaterial(int topMaterial) {
-        this.setTopMaterial(topMaterial, 0);
-    }
-
-    protected final void setTopMaterial(int topMaterial, int topData) {
-        this.topMaterial = topMaterial;
-        this.topData = topData;
-    }
-
-    protected final void setGroundMaterial(int groundMaterial) {
-        this.setGroundMaterial(groundMaterial, 0);
-    }
-
-    protected final void setGroundMaterial(int groundMaterial, int groundData) {
-        this.groundMaterial = groundMaterial;
-        this.groundData = groundData;
     }
 }

@@ -84,6 +84,7 @@ public class NormalGenerator extends VanillaGenerator {
         setBiomeSpecificGround(new GroundGeneratorMesa(),  EnumBiome.MESA.id,  EnumBiome.MESA_PLATEAU.id,  EnumBiome.MESA_PLATEAU_F.id);
         setBiomeSpecificGround(new GroundGeneratorMesa(GroundGeneratorMesa.MesaType.BRYCE),  EnumBiome.MESA_BRYCE.id);
         setBiomeSpecificGround(new GroundGeneratorMesa(GroundGeneratorMesa.MesaType.FOREST),  EnumBiome.MESA_PLATEAU_F.id,  EnumBiome.MESA_PLATEAU_F_M.id);
+        setBiomeSpecificGround(new GroundGeneratorSandOcean(), EnumBiome.WARM_OCEAN.id, EnumBiome.LUKEWARM_OCEAN.id, EnumBiome.DEEP_WARM_OCEAN.id, EnumBiome.DEEP_LUKEWARM_OCEAN.id);
 
         setBiomeHeight(BiomeHeight.OCEAN, EnumBiome.OCEAN.id, EnumBiome.FROZEN_OCEAN.id, EnumBiome.WARM_OCEAN.id, EnumBiome.LUKEWARM_OCEAN.id);
         setBiomeHeight(BiomeHeight.DEEP_OCEAN, EnumBiome.DEEP_OCEAN.id, EnumBiome.DEEP_FROZEN_OCEAN.id, EnumBiome.DEEP_WARM_OCEAN.id, EnumBiome.DEEP_LUKEWARM_OCEAN.id);
