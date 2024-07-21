@@ -19,13 +19,14 @@ public class MapLayerBiomeVariation extends MapLayer {
         VARIATIONS.put(EnumBiome.MEGA_TAIGA.id, new int[]{EnumBiome.MEGA_TAIGA_HILLS.id});
         VARIATIONS.put(EnumBiome.COLD_TAIGA.id, new int[]{EnumBiome.COLD_TAIGA_HILLS.id});
         VARIATIONS.put(EnumBiome.PLAINS.id, new int[]{EnumBiome.FOREST.id, EnumBiome.FOREST.id, EnumBiome.FOREST_HILLS.id});
-        VARIATIONS.put(EnumBiome.ICE_PLAINS.id, new int[]{EnumBiome.ICE_MOUNTAINS.id});
+        //VARIATIONS.put(EnumBiome.ICE_PLAINS.id, new int[]{EnumBiome.ICE_MOUNTAINS.id});
+        VARIATIONS.put(EnumBiome.ICE_PLAINS.id, new int[]{EnumBiome.ICE_PLAINS.id});
         VARIATIONS.put(EnumBiome.JUNGLE.id, new int[]{EnumBiome.JUNGLE_HILLS.id});
         VARIATIONS.put(EnumBiome.BAMBOO_JUNGLE.id, new int[]{EnumBiome.BAMBOO_JUNGLE_HILLS.id});
         VARIATIONS.put(EnumBiome.OCEAN.id, new int[]{EnumBiome.DEEP_OCEAN.id});
-        VARIATIONS.put(EnumBiome.WARM_OCEAN.id, new int[]{EnumBiome.DEEP_WARM_OCEAN.id});
-        VARIATIONS.put(EnumBiome.LUKEWARM_OCEAN.id, new int[]{EnumBiome.DEEP_LUKEWARM_OCEAN.id});
-        VARIATIONS.put(EnumBiome.COLD_OCEAN.id, new int[]{EnumBiome.DEEP_COLD_OCEAN.id});
+        //VARIATIONS.put(EnumBiome.WARM_OCEAN.id, new int[]{EnumBiome.DEEP_WARM_OCEAN.id});
+        //VARIATIONS.put(EnumBiome.LUKEWARM_OCEAN.id, new int[]{EnumBiome.DEEP_LUKEWARM_OCEAN.id});
+        //VARIATIONS.put(EnumBiome.COLD_OCEAN.id, new int[]{EnumBiome.DEEP_COLD_OCEAN.id});
         VARIATIONS.put(EnumBiome.EXTREME_HILLS.id, new int[]{EnumBiome.EXTREME_HILLS_PLUS.id});
         VARIATIONS.put(EnumBiome.SAVANNA.id, new int[]{EnumBiome.SAVANNA_PLATEAU.id});
         VARIATIONS.put(EnumBiome.MESA_PLATEAU_F.id, new int[]{EnumBiome.MESA.id});
@@ -122,7 +123,7 @@ public class MapLayerBiomeVariation extends MapLayer {
                     int val = centerValue;
                     if (VARIATIONS.containsKey(centerValue)) {
                         val = VARIATIONS.get(centerValue)[nextInt(VARIATIONS.get(centerValue).length)];
-                    } else if ((centerValue == EnumBiome.DEEP_OCEAN.id || centerValue == EnumBiome.DEEP_COLD_OCEAN.id || centerValue == EnumBiome.DEEP_WARM_OCEAN.id || centerValue == EnumBiome.DEEP_LUKEWARM_OCEAN.id || centerValue == EnumBiome.DEEP_FROZEN_OCEAN.id)
+                    } else if ((centerValue == EnumBiome.DEEP_OCEAN.id/* || centerValue == EnumBiome.DEEP_COLD_OCEAN.id || centerValue == EnumBiome.DEEP_WARM_OCEAN.id || centerValue == EnumBiome.DEEP_LUKEWARM_OCEAN.id || centerValue == EnumBiome.DEEP_FROZEN_OCEAN.id*/)
                             && nextInt(3) == 0) {
                         val = ISLANDS[nextInt(ISLANDS.length)];
                     }

@@ -352,4 +352,8 @@ public class NetherGenerator extends VanillaGenerator {
         }
         return octaves;
     }
+    
+    @Override
+    public void populateStructure(final int chunkX, final int chunkZ) {
+    }
 }
