@@ -14,12 +14,12 @@ public class MapLayerShore extends MapLayer {
     static {
         OCEANS.add(EnumBiome.OCEAN.id);
         OCEANS.add(EnumBiome.DEEP_OCEAN.id);
-        //OCEANS.add(EnumBiome.WARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.DEEP_WARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.LUKEWARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.DEEP_LUKEWARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.COLD_OCEAN.id);
-        //OCEANS.add(EnumBiome.DEEP_COLD_OCEAN.id);
+        OCEANS.add(EnumBiome.WARM_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_WARM_OCEAN.id);
+        OCEANS.add(EnumBiome.LUKEWARM_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_LUKEWARM_OCEAN.id);
+        OCEANS.add(EnumBiome.COLD_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_COLD_OCEAN.id);
 
         SPECIAL_SHORES.put(EnumBiome.EXTREME_HILLS.id, EnumBiome.STONE_BEACH.id);
         SPECIAL_SHORES.put(EnumBiome.EXTREME_HILLS_PLUS.id, EnumBiome.STONE_BEACH.id);

@@ -16,12 +16,12 @@ public class MapLayerRiver extends MapLayer {
     static {
         OCEANS.add(EnumBiome.OCEAN.id);
         OCEANS.add(EnumBiome.DEEP_OCEAN.id);
-        //OCEANS.add(EnumBiome.WARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.DEEP_WARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.LUKEWARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.DEEP_LUKEWARM_OCEAN.id);
-        //OCEANS.add(EnumBiome.COLD_OCEAN.id);
-        //OCEANS.add(EnumBiome.DEEP_COLD_OCEAN.id);
+        OCEANS.add(EnumBiome.WARM_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_WARM_OCEAN.id);
+        OCEANS.add(EnumBiome.LUKEWARM_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_LUKEWARM_OCEAN.id);
+        OCEANS.add(EnumBiome.COLD_OCEAN.id);
+        OCEANS.add(EnumBiome.DEEP_COLD_OCEAN.id);
 
         SPECIAL_RIVERS.put(EnumBiome.ICE_PLAINS.id, EnumBiome.FROZEN_RIVER.id);
         SPECIAL_RIVERS.put(EnumBiome.MUSHROOM_ISLAND.id, EnumBiome.MUSHROOM_ISLAND_SHORE.id);

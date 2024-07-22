@@ -72,10 +72,10 @@ public class MapLayerBiomeEdge extends MapLayer {
                         } else if (entryValue != null && (entryValue.contains(upperVal) || entryValue.contains(lowerVal) || entryValue.contains(leftVal) || entryValue.contains(rightVal))) {
                             val = map.get(centerVal);
                             break;
-                        } /*else if (centerVal == EnumBiome.DESERT.id &&
+                        } else if (centerVal == EnumBiome.DESERT.id &&
                                 (upperVal == EnumBiome.OCEAN.id || lowerVal == EnumBiome.OCEAN.id || leftVal == EnumBiome.OCEAN.id || rightVal == EnumBiome.OCEAN.id)) {
                             val = EnumBiome.WARM_OCEAN.id;
-                        }*/
+                        }
                     }
                 }
 
